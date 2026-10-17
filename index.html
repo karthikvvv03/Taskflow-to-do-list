@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A responsive to-do list app to add, edit, complete, filter, and manage daily tasks.">
+  <meta name="theme-color" content="#f4f7fb">
+  <title>TaskFlow — To-Do List</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="TaskFlow home">
+        <span class="brand-mark" aria-hidden="true">✓</span>
+        <span>TaskFlow</span>
+      </a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Toggle color theme">
+        <span aria-hidden="true" id="themeIcon">☾</span><span class="theme-label">Dark mode</span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="pageTitle">
+        <p class="eyebrow">YOUR DAY, ORGANIZED</p>
+        <h1 id="pageTitle">Make room for what matters.</h1>
+        <p class="hero-copy">A little progress each day adds up to big results. Capture your tasks and keep moving.</p>
+      </section>
+
+      <section class="task-panel" aria-labelledby="taskHeading">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">TASK MANAGER</p>
+            <h2 id="taskHeading">My tasks <span class="task-count" id="taskCount">0</span></h2>
+          </div>
+          <p class="date-label" id="todayLabel"></p>
+        </div>
+
+        <form class="task-form" id="taskForm">
+          <label class="sr-only" for="taskInput">New task</label>
+          <input id="taskInput" name="task" type="text" maxlength="180" placeholder="What needs to get done?" autocomplete="off" required>
+          <button class="primary-button" type="submit"><span aria-hidden="true">＋</span> Add task</button>
+        </form>
+
+        <div class="toolbar">
+          <div class="filters" role="group" aria-label="Filter tasks">
+            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All <span id="allCount">0</span></button>
+            <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Active <span id="activeCount">0</span></button>
+            <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Completed <span id="completedCount">0</span></button>
+          </div>
+          <button class="clear-button" id="clearCompleted" type="button" disabled>Clear completed</button>
+        </div>
+
+        <ul class="task-list" id="taskList" aria-label="Tasks"></ul>
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon" aria-hidden="true">✦</div>
+          <h3 id="emptyTitle">A fresh start</h3>
+          <p id="emptyCopy">Add your first task above and make today count.</p>
+        </div>
+        <p class="sr-only" id="statusMessage" role="status" aria-live="polite"></p>
+      </section>
+
+      <footer class="app-footer">
+        <span>Small steps. Real progress.</span>
+        <span>Tasks are saved on this device.</span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
